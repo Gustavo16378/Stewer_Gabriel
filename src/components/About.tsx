@@ -10,7 +10,7 @@ export default function About() {
               Replace the div below with:
                 <img src="/photos/about.jpg" alt="Stewer Gabriel" className="w-full object-cover" />
             */}
-            <div className="aspect-[3/4] w-full bg-gradient-to-br from-graphite via-[#1c1c1c] to-graphite" />
+            <img src="/photos/Stewer3.jpeg" alt="Stewer Gabriel" className="aspect-[3/4] w-full object-cover object-top" />
 
             {/* Decorative frame offset */}
             <div className="absolute -bottom-5 -right-5 w-28 h-28 border border-gold/20 pointer-events-none" />

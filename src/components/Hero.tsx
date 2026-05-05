@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react'
 const SLIDES: string[] = [
   '/photos/Stewer1.jpg',
   '/photos/Stewer2.jpg',
-  '/photos/Stewer3.jpeg',
 ]
 
 function Slide({ src, active }: { src: string; active: boolean }) {

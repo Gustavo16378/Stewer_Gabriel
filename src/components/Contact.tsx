@@ -26,24 +26,24 @@ export default function Contact() {
             WhatsApp
           </a>
           <a
-            href="mailto:contato@stewergabriel.com"
+            href="https://www.instagram.com/stewer.gabriel"
+            target="_blank"
+            rel="noreferrer"
             className="w-full sm:w-auto px-12 py-4 border border-wire/50 text-sand text-[11px] tracking-ultra uppercase hover:border-cream hover:text-cream transition-all duration-300 text-center"
           >
-            E-mail
+            Instagram
           </a>
         </div>
 
         {/* Social */}
         <div className="mt-10 flex items-center justify-center gap-2 fade-up fade-up-d4">
-          <span className="text-sand text-[10px] tracking-ultra uppercase">Instagram</span>
+          <span className="text-sand text-[10px] tracking-ultra uppercase">E-mail</span>
           <span className="w-4 h-px bg-wire" />
           <a
-            href="https://www.instagram.com/stewer.gabriel"
-            target="_blank"
-            rel="noreferrer"
+            href="mailto:contato@stewergabriel.com"
             className="text-sand text-[10px] tracking-ultra uppercase hover:text-cream transition-colors"
           >
-            @stewer.gabriel
+            contato@stewergabriel.com
           </a>
         </div>
 
