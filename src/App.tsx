@@ -4,6 +4,7 @@ import Hero        from './components/Hero'
 import About       from './components/About'
 import Services    from './components/Services'
 import Consultoria from './components/Consultoria'
+import Instrutor   from './components/Instrutor'
 import Portfolio   from './components/Portfolio'
 import Location    from './components/Location'
 import Contact     from './components/Contact'
@@ -20,7 +21,7 @@ export default function App() {
           }
         })
       },
-      { threshold: 0.08 },
+      { threshold: 0.05, rootMargin: '0px 0px 12% 0px' },
     )
 
     document.querySelectorAll('.fade-up').forEach(el => io.observe(el))
@@ -35,6 +36,7 @@ export default function App() {
       <About />
       <Services />
       <Consultoria />
+      <Instrutor />
       <Portfolio />
       <Location />
       <Contact />

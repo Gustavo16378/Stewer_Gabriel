@@ -9,23 +9,28 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 const IMAGE_EXTS = /\.(jpg|jpeg|png|webp|gif|avif)$/i
 const VIDEO_EXTS = /\.(mp4|webm|mov)$/i
 
-function portfolioManifestPlugin() {
-  const imgDir = path.resolve(__dirname, 'public/portifolioImgs')
-  const vidDir = path.resolve(__dirname, 'public/videosImgs')
-  const out = path.resolve(__dirname, 'public/portfolio-manifest.json')
+/** Each gallery gets its own manifest, auto-built from its media folders. */
+const MANIFESTS = [
+  { imgDir: 'public/portifolioImgs', vidDir: 'public/videosImgs',    out: 'public/portfolio-manifest.json' },
+  { imgDir: 'public/instrutorImgs',  vidDir: 'public/instrutorVideos', out: 'public/instrutor-manifest.json' },
+]
+
+function mediaManifestPlugin() {
+  function readDir(dir: string, re: RegExp) {
+    const abs = path.resolve(__dirname, dir)
+    return fs.existsSync(abs) ? fs.readdirSync(abs).filter(f => re.test(f)) : []
+  }
 
   function generate() {
-    const images = fs.existsSync(imgDir)
-      ? fs.readdirSync(imgDir).filter(f => IMAGE_EXTS.test(f))
-      : []
-    const videos = fs.existsSync(vidDir)
-      ? fs.readdirSync(vidDir).filter(f => VIDEO_EXTS.test(f))
-      : []
-    fs.writeFileSync(out, JSON.stringify({ images, videos }))
+    for (const m of MANIFESTS) {
+      const images = readDir(m.imgDir, IMAGE_EXTS)
+      const videos = readDir(m.vidDir, VIDEO_EXTS)
+      fs.writeFileSync(path.resolve(__dirname, m.out), JSON.stringify({ images, videos }))
+    }
   }
 
   return {
-    name: 'portfolio-manifest',
+    name: 'media-manifest',
     buildStart: generate,
     configureServer(server: any) {
       generate()
@@ -36,5 +41,5 @@ function portfolioManifestPlugin() {
 }
 
 export default defineConfig({
-  plugins: [react(), portfolioManifestPlugin()],
+  plugins: [react(), mediaManifestPlugin()],
 })

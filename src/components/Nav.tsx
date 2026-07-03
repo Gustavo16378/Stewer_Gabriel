@@ -4,6 +4,7 @@ const links = [
   { label: 'Quem é',      href: '#sobre' },
   { label: 'Serviços',    href: '#servicos' },
   { label: 'Consultoria', href: '#consultoria' },
+  { label: 'Instrutor',   href: '#instrutor' },
   { label: 'Portfólio',   href: '#portfolio' },
 ]
 
@@ -46,12 +47,12 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 border-b transition-[transform,background-color,backdrop-filter,border-color] duration-500 ${
           hidden ? '-translate-y-full' : 'translate-y-0'
         } ${
           scrolled
-            ? 'bg-carbon/95 backdrop-blur-md border-b border-wire/20'
-            : 'bg-transparent'
+            ? 'bg-carbon/95 backdrop-blur-md border-white/[0.06]'
+            : 'bg-transparent border-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 lg:px-12 py-4 flex items-center justify-between">
