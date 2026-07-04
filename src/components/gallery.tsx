@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 
 export interface Manifest {
   images: string[]
@@ -192,7 +193,9 @@ export function MediaGallery({
         ))}
       </div>
 
-      {selected && <Lightbox item={selected} onClose={close} />}
+      {/* Portal to <body> so the fixed overlay escapes any transformed
+          ancestor (e.g. a .fade-up parent) and covers the full viewport. */}
+      {selected && createPortal(<Lightbox item={selected} onClose={close} />, document.body)}
     </>
   )
 }

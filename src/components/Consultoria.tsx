@@ -19,15 +19,15 @@ const itens = [
 
 export default function Consultoria() {
   return (
-    <section id="consultoria" className="py-32 lg:py-44 px-8 lg:px-12 bg-carbon">
+    <section id="consultoria" className="py-24 sm:py-32 lg:py-44 px-6 sm:px-8 lg:px-12 bg-carbon">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-28 items-end mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-28 lg:items-end mb-14 sm:mb-20">
           <div>
             <p className="text-sand text-[10px] tracking-ultra uppercase fade-up">Consultoria</p>
-            <h2 className="mt-4 font-serif text-[clamp(2.5rem,5vw,3.75rem)] text-cream leading-tight fade-up fade-up-d1">
-              Uma transformação<br />completa de imagem
+            <h2 className="mt-4 font-serif text-[clamp(2.25rem,6vw,3.75rem)] text-cream leading-[1.1] fade-up fade-up-d1">
+              Uma transformação <br className="hidden sm:block" />completa de imagem
             </h2>
             <div className="mt-6 w-10 h-px bg-gold fade-up fade-up-d2" />
           </div>
@@ -36,33 +36,32 @@ export default function Consultoria() {
           </p>
         </div>
 
-        {/* Itens */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-wire/20">
+        {/* Itens — índice editorial (título à esquerda, descrição à direita) */}
+        <div className="border-t border-wire/20">
           {itens.map((item, i) => (
             <div
               key={item.titulo}
-              className="bg-carbon p-10 lg:p-12 fade-up"
-              style={{ transitionDelay: `${i * 0.1}s` }}
+              className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-10 py-8 lg:py-10 border-b border-wire/20 items-baseline fade-up"
+              style={{ transitionDelay: `${i * 0.08}s` }}
             >
-              <span className="font-serif text-gold/30 text-4xl leading-none select-none">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 className="mt-5 font-serif text-xl text-cream">{item.titulo}</h3>
-              <div className="mt-3 w-6 h-px bg-wire" />
-              <p className="mt-5 text-ivory text-sm leading-relaxed">{item.desc}</p>
+              <div className="md:col-span-5 flex items-baseline gap-4">
+                <span className="hidden md:block w-6 h-px bg-gold/50 translate-y-[-0.35em]" />
+                <h3 className="font-serif text-xl lg:text-2xl text-cream">{item.titulo}</h3>
+              </div>
+              <p className="md:col-span-7 text-ivory text-sm sm:text-[15px] leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center gap-8 fade-up">
+        <div className="mt-16 sm:mt-20 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 fade-up">
           <a
             href="#contato"
-            className="text-[11px] tracking-ultra uppercase text-gold border border-gold/60 px-10 py-4 hover:bg-gold hover:text-carbon transition-all duration-300"
+            className="self-start text-[11px] tracking-ultra uppercase text-gold border border-gold/60 px-10 py-4 hover:bg-gold hover:text-carbon transition-all duration-300"
           >
             Agende sua consultoria
           </a>
-          <p className="text-sand text-xs tracking-[0.08em] max-w-xs">
+          <p className="text-sand text-xs tracking-[0.08em] max-w-xs leading-relaxed">
             Atendimento exclusivo e personalizado, mediante agendamento em Palmas, TO.
           </p>
         </div>
