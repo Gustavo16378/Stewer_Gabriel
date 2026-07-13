@@ -57,7 +57,7 @@ export default function Instrutor() {
         {/* Galeria */}
         <div className="mb-14 sm:mb-16 fade-up">
           <p className="text-sand text-[10px] tracking-ultra uppercase mb-6 sm:mb-8">Bastidores das aulas</p>
-          <MediaGallery items={items} columns="columns-1 sm:columns-2 lg:columns-3" />
+          <MediaGallery items={items} layout="grid" />
         </div>
 
         {/* CTA */}

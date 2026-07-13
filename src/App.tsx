@@ -8,6 +8,7 @@ import Instrutor   from './components/Instrutor'
 import Portfolio   from './components/Portfolio'
 import Location    from './components/Location'
 import Contact     from './components/Contact'
+import Footer      from './components/Footer'
 
 export default function App() {
   /* Fade-up on scroll — drives all .fade-up elements */
@@ -40,6 +41,7 @@ export default function App() {
       <Portfolio />
       <Location />
       <Contact />
+      <Footer />
     </div>
   )
 }

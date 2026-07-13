@@ -34,16 +34,11 @@ export default function About() {
             <div className="mt-6 w-10 h-px bg-gold fade-up fade-up-d2" />
 
             <p className="mt-8 text-ivory leading-relaxed text-[15px] fade-up fade-up-d2">
-              Stewer Gabriel é visagista e consultor de imagem masculina baseado em Palmas, TO.
-              Com anos de experiência transformando a aparência e a autoestima de homens, ele une
-              técnica, estética e psicologia para criar looks que comunicam autoridade,
-              autenticidade e confiança.
+              Stewer Gabriel é visagista e consultor de imagem masculina. Com anos de experiência em Palmas-TO transformando a aparência e a autoestima de homens, ele une técnica, estética e psicologia para criar a proposta de imagem que comunicam autoridade, autenticidade e confiança.
             </p>
 
             <p className="mt-5 text-ivory leading-relaxed text-[15px] fade-up fade-up-d3">
-              Para Stewer, um bom corte vai muito além das tesouras. É a leitura do rosto,
-              do comportamento, do objetivo de vida. Cada cliente é único — e merece um visual
-              que reflita exatamente quem ele é e onde quer chegar.
+              Para Stewer, um bom corte vai muito além das tesouras. É a leitura do rosto, do comportamento, do objetivo de vida. Cada cliente é único — e merece um visual que reflita exatamente quem ele é e onde quer chegar.
             </p>
 
             <blockquote className="mt-10 border-l-2 border-gold pl-6 fade-up fade-up-d4">
@@ -54,12 +49,12 @@ export default function About() {
 
             <div className="mt-12 flex items-center gap-8 fade-up fade-up-d4">
               <div>
-                <p className="font-serif text-3xl text-cream">+500</p>
-                <p className="text-sand text-[10px] tracking-ultra uppercase mt-1">Clientes atendidos</p>
+                <p className="font-serif text-3xl text-cream">+800</p>
+                <p className="text-sand text-[10px] tracking-ultra uppercase mt-1">Clientes atendidos por ano</p>
               </div>
               <div className="w-px h-10 bg-wire" />
               <div>
-                <p className="font-serif text-3xl text-cream">5+</p>
+                <p className="font-serif text-3xl text-cream">10+</p>
                 <p className="text-sand text-[10px] tracking-ultra uppercase mt-1">Anos de experiência</p>
               </div>
             </div>

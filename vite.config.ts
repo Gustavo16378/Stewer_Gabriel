@@ -16,9 +16,13 @@ const MANIFESTS = [
 ]
 
 function mediaManifestPlugin() {
+  // Files/folders starting with "_" are kept in the project but hidden from
+  // the site (e.g. `_instrucao.jpeg` stays on disk but never enters a gallery).
   function readDir(dir: string, re: RegExp) {
     const abs = path.resolve(__dirname, dir)
-    return fs.existsSync(abs) ? fs.readdirSync(abs).filter(f => re.test(f)) : []
+    return fs.existsSync(abs)
+      ? fs.readdirSync(abs).filter(f => re.test(f) && !f.startsWith('_'))
+      : []
   }
 
   function generate() {

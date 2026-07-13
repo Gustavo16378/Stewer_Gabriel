@@ -18,7 +18,7 @@ export default function Contact() {
         {/* CTA buttons */}
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 fade-up fade-up-d3">
           <a
-            href="https://wa.me/5563999999999?text=Olá%20Stewer%2C%20gostaria%20de%20agendar%20uma%20consultoria."
+            href="https://wa.me/5563985116783?text=Ol%C3%A1%20Stewer%2C%20gostaria%20de%20agendar%20uma%20consultoria."
             target="_blank"
             rel="noreferrer"
             className="w-full sm:w-auto px-12 py-4 bg-gold text-carbon text-[11px] tracking-ultra uppercase font-medium hover:bg-cream transition-colors duration-300 text-center"
@@ -35,23 +35,16 @@ export default function Contact() {
           </a>
         </div>
 
-        {/* Social */}
-        <div className="mt-10 flex items-center justify-center gap-2 fade-up fade-up-d4">
-          <span className="text-sand text-[10px] tracking-ultra uppercase">E-mail</span>
+        {/* Phone */}
+        <div className="mt-10 flex items-center justify-center gap-3 fade-up fade-up-d4">
+          <span className="text-sand text-[10px] tracking-ultra uppercase">Telefone</span>
           <span className="w-4 h-px bg-wire" />
           <a
-            href="mailto:contato@stewergabriel.com"
-            className="text-sand text-[10px] tracking-ultra uppercase hover:text-cream transition-colors"
+            href="tel:+5563985116783"
+            className="inline-block py-2 -my-2 text-sand text-[10px] tracking-ultra uppercase hover:text-cream transition-colors"
           >
-            contato@stewergabriel.com
+            (63) 98511-6783
           </a>
-        </div>
-
-        {/* Divider + footer */}
-        <div className="mt-24 pt-8 border-t border-wire/20 fade-up">
-          <p className="text-wire text-[10px] tracking-ultra uppercase">
-            © {new Date().getFullYear()} Stewer Gabriel &mdash; Todos os direitos reservados
-          </p>
         </div>
       </div>
     </section>

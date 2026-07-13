@@ -47,14 +47,14 @@ export function useManifest(
   return { items, loaded }
 }
 
-function VideoTile({ src }: { src: string }) {
+function VideoTile({ src, heightClass = 'h-auto' }: { src: string; heightClass?: string }) {
   const ref = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
     const obs = new IntersectionObserver(
-      ([entry]) => { entry.isIntersecting ? el.play() : el.pause() },
+      ([entry]) => { if (entry.isIntersecting) el.play().catch(() => {}); else el.pause() },
       { threshold: 0.3 }
     )
     obs.observe(el)
@@ -68,7 +68,7 @@ function VideoTile({ src }: { src: string }) {
       muted
       loop
       playsInline
-      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+      className={`w-full ${heightClass} object-cover group-hover:scale-105 transition-transform duration-700`}
     />
   )
 }
@@ -130,11 +130,38 @@ function Lightbox({ item, onClose }: { item: MediaItem; onClose: () => void }) {
 export function MediaGallery({
   items,
   columns = 'columns-2 lg:columns-3',
+  layout = 'masonry',
+  grid = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+  aspect = 'aspect-[3/4]',
 }: {
   items: MediaItem[]
   columns?: string
+  /** 'masonry' keeps native ratios; 'grid' makes every tile the same size;
+      'responsive' is masonry on phones (< sm) and a uniform grid from sm up. */
+  layout?: 'masonry' | 'grid' | 'responsive'
+  /** Grid column classes (layout='grid' only). */
+  grid?: string
+  /** Tile aspect ratio for uniform tiles (layout='grid' only). */
+  aspect?: string
 }) {
   const [selected, setSelected] = useState<MediaItem | null>(null)
+
+  const containerClass =
+    layout === 'grid'
+      ? `${grid} gap-3`
+      : layout === 'responsive'
+      ? 'columns-2 gap-3 [&>*]:mb-3 sm:[&>*]:mb-0 sm:grid sm:grid-cols-2 lg:grid-cols-3'
+      : `${columns} gap-3 [&>*]:mb-3`
+
+  const tileClass =
+    layout === 'grid'
+      ? aspect
+      : layout === 'responsive'
+      ? 'break-inside-avoid sm:aspect-[3/4]'
+      : 'break-inside-avoid'
+
+  const mediaHeight =
+    layout === 'grid' ? 'h-full' : layout === 'responsive' ? 'h-auto sm:h-full' : 'h-auto'
   const gridRef = useRef<HTMLDivElement>(null)
   const close = useCallback(() => setSelected(null), [])
 
@@ -160,12 +187,12 @@ export function MediaGallery({
 
   return (
     <>
-      <div ref={gridRef} className={`${columns} gap-3 [&>*]:mb-3`}>
+      <div ref={gridRef} className={containerClass}>
         {items.map((item, i) => (
           <div
             key={i}
             onClick={() => setSelected(item)}
-            className="break-inside-avoid overflow-hidden group cursor-pointer relative fade-up"
+            className={`overflow-hidden group cursor-pointer relative fade-up ${tileClass}`}
             style={{ transitionDelay: `${(i % 3) * 0.08}s` }}
           >
             {item.type === 'image' ? (
@@ -173,10 +200,10 @@ export function MediaGallery({
                 src={item.src}
                 alt=""
                 loading="lazy"
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                className={`w-full ${mediaHeight} object-cover group-hover:scale-105 transition-transform duration-700`}
               />
             ) : (
-              <VideoTile src={item.src} />
+              <VideoTile src={item.src} heightClass={mediaHeight} />
             )}
 
             {/* Play icon hint for videos */}

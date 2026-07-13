@@ -30,7 +30,7 @@ export default function Portfolio() {
             Em breve — novos trabalhos chegando.
           </p>
         ) : (
-          <MediaGallery items={items} />
+          <MediaGallery items={items} layout="grid" grid="grid grid-cols-2 lg:grid-cols-3" />
         )}
 
         {/* CTA */}
