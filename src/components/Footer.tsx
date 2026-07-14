@@ -123,9 +123,22 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-wire/15 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sand text-[10px] tracking-ultra uppercase">
-            © {year} Stewer Gabriel — Todos os direitos reservados
-          </p>
+          <div className="flex flex-col items-center sm:items-start gap-1.5">
+            <p className="text-sand text-[10px] tracking-ultra uppercase">
+              © {year} Stewer Gabriel — Todos os direitos reservados
+            </p>
+            <p className="text-sand text-[10px] tracking-ultra uppercase">
+              Desenvolvido por{' '}
+              <a
+                href="https://gustavodev.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors duration-300"
+              >
+                Gustavo Dev
+              </a>
+            </p>
+          </div>
           <a
             href="#"
             className="group inline-flex items-center gap-2 text-sand text-[10px] tracking-ultra uppercase hover:text-cream transition-colors"
